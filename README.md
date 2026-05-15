@@ -2,7 +2,7 @@
 <p align="center">
   <a href="https://github.com/sandeepbhaisora26">
     <img
-      src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=24&duration=2800&pause=800&color=58A6FF&center=true&vCenter=true&width=640&lines=Hi%2C+I'm+Sandeep+Bhaisora;Senior+Backend+Engineer+%C2%B7+Bengaluru;Java+%C2%B7+Spring+Boot+%C2%B7+Kafka+%C2%B7+AWS;Building+reliable%2C+event-driven+systems"
+      src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=24&duration=2800&pause=800&color=58A6FF&center=true&vCenter=true&width=640&lines=Hi%2C+I'm+Sandeep+Bhaisora;Senior+Backend+Engineer+%C2%B7+Bengaluru;Java+%C2%B7+Spring+Boot+%C2%B7+Kafka+%C2%B7+AWS;Building+reliable%2C+event-driven+systems;Exploring+LLMs+%C2%B7+MCP+%C2%B7+RAG+pipelines"
       alt="Typing intro"
     />
   </a>
@@ -34,6 +34,7 @@ I care about reliability, clear system design, and the unglamorous details that 
 
 - **Backend Developer @ Termgrid** — building services for a private-equity workflow platform. Async pipelines on top of AWS SQS + MySQL.
 - **[spring-boot-flow-map](https://github.com/sandeepbhaisora26/spring-boot-flow-map)** — a local explorer for Spring Boot codebases. Static call-graph analyzer (JavaParser + symbol solver) plus a ByteBuddy-based JVM agent that streams live request traces into a browser UI. Built when I got tired of guessing what an endpoint actually does.
+- **AI tooling** — building MCP (Model Context Protocol) servers, experimenting with RAG pipelines over engineering docs, and looking at where LLMs can save real time in day-to-day backend work without becoming yet another layer to maintain.
 
 ## Tech I reach for
 
@@ -65,6 +66,14 @@ I care about reliability, clear system design, and the unglamorous details that 
 ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white)
 ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white)
 ![ELK](https://img.shields.io/badge/ELK_Stack-005571?style=flat-square&logo=elasticstack&logoColor=white)
+
+**AI / LLM tooling**  
+![Claude](https://img.shields.io/badge/Claude-DE7356?style=flat-square&logo=anthropic&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white)
+![MCP](https://img.shields.io/badge/Model_Context_Protocol-191919?style=flat-square&logo=anthropic&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
+![RAG](https://img.shields.io/badge/RAG_Pipelines-0D9488?style=flat-square&logo=databricks&logoColor=white)
+![pgvector](https://img.shields.io/badge/pgvector-336791?style=flat-square&logo=postgresql&logoColor=white)
 
 ## A bit of background
 
