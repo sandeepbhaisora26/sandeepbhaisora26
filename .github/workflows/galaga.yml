@@ -1,0 +1,42 @@
+# Save this file as:  .github/workflows/galaga.yml
+# inside your PROFILE repo:  sandeepbhaisora26/sandeepbhaisora26
+#
+# Runs daily + on every push to main. Uses abozanona/pacman-contribution-graph
+# to generate an animated Galaga SVG over your contribution graph. Commits
+# the SVG(s) to the `output` branch of the same repo. Your README's
+# <picture> element points at that branch.
+#
+# Games available from this action: pacman, breakout, galaga, puzzle-bobble
+# (Comma-separated in `games:`. Currently set to galaga only.)
+
+name: Generate arcade contribution graphs
+
+on:
+  schedule:
+    - cron: "0 0 * * *"        # daily at 00:00 UTC
+  workflow_dispatch:           # manual trigger from Actions tab
+  push:
+    branches:
+      - main                   # first-run trigger when this file lands
+
+jobs:
+  generate:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Generate Galaga SVGs
+        uses: abozanona/pacman-contribution-graph@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          games: "galaga"
+
+      - name: Push SVGs to the `output` branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
