@@ -1,39 +1,39 @@
 # Save this file as:  .github/workflows/pacman.yml
 # inside your PROFILE repo:  sandeepbhaisora26/sandeepbhaisora26
 #
-# It runs daily and on every push to main, generates an animated Pac-Man SVG
-# that "eats" your contribution graph, and commits it to the `output` branch
-# of the same repo. Your profile README's <img> tag points at that branch.
+# Runs daily + on every push to main. Uses abozanona/pacman-contribution-graph
+# to generate an animated Pac-Man SVG that "eats" your contribution graph.
+# Commits the SVG(s) to the `output` branch of the same repo. Your README's
+# <picture> element points at that branch.
+#
+# Games available: pacman, breakout, galaga, puzzle-bobble
+# (Comma-separated in `games:`. Currently set to pacman only.)
 
-name: Generate Pac-Man
+name: Generate arcade contribution graphs
 
 on:
-  # Run every 24 hours.
   schedule:
-    - cron: "0 */24 * * *"
-  # Allow manual runs from the Actions tab.
-  workflow_dispatch:
-  # First-run trigger when the workflow file is pushed.
+    - cron: "0 0 * * *"        # daily at 00:00 UTC
+  workflow_dispatch:           # manual trigger from Actions tab
   push:
     branches:
-      - main
+      - main                   # first-run trigger when this file lands
 
 jobs:
   generate:
     permissions:
       contents: write
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 20
 
     steps:
-      - name: Generate Pac-Man SVG
-        uses: abozanona/pacman-contribution-generator@main
+      - name: Generate Pac-Man SVGs
+        uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/pacman-contribution-graph.svg
+          games: "pacman"
 
-      - name: Push to `output` branch
+      - name: Push SVGs to the `output` branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
