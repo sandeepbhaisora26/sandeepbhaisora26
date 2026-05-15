@@ -1,0 +1,42 @@
+# Save this file as:  .github/workflows/pacman.yml
+# inside your PROFILE repo:  sandeepbhaisora26/sandeepbhaisora26
+#
+# It runs daily and on every push to main, generates an animated Pac-Man SVG
+# that "eats" your contribution graph, and commits it to the `output` branch
+# of the same repo. Your profile README's <img> tag points at that branch.
+
+name: Generate Pac-Man
+
+on:
+  # Run every 24 hours.
+  schedule:
+    - cron: "0 */24 * * *"
+  # Allow manual runs from the Actions tab.
+  workflow_dispatch:
+  # First-run trigger when the workflow file is pushed.
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Generate Pac-Man SVG
+        uses: abozanona/pacman-contribution-generator@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/pacman-contribution-graph.svg
+
+      - name: Push to `output` branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
